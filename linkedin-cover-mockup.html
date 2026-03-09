@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LinkedIn Cover Mockup</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #1a1a2e;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      padding: 40px 20px;
+    }
+
+    .label {
+      color: #666;
+      font-size: 13px;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* LinkedIn cover: 1584 x 396px — rendered at 50% */
+    .cover {
+      width: 792px;
+      height: 198px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #0a0a1a 0%, #0d1b3e 40%, #0a2540 70%, #0d1b3e 100%);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    /* Subtle grid pattern */
+    .cover::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(102, 126, 234, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(102, 126, 234, 0.04) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+
+    /* Glowing orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.15;
+    }
+    .orb-1 {
+      width: 300px; height: 300px;
+      background: #667eea;
+      top: -100px; right: 100px;
+    }
+    .orb-2 {
+      width: 200px; height: 200px;
+      background: #4ecdc4;
+      bottom: -80px; right: 250px;
+      opacity: 0.1;
+    }
+    .orb-3 {
+      width: 150px; height: 150px;
+      background: #667eea;
+      top: 20px; left: 300px;
+      opacity: 0.08;
+    }
+
+    /* Data dots — right side decoration */
+    .dots {
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 6px;
+      opacity: 0.2;
+    }
+    .dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #667eea;
+    }
+    .dot.lit { background: #4ecdc4; opacity: 1; }
+
+    /* Content */
+    .content {
+      position: absolute;
+      left: 48px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .name {
+      font-size: 32px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .divider {
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, #667eea, #4ecdc4);
+      margin-bottom: 10px;
+      border-radius: 2px;
+    }
+
+    .roles {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .role {
+      font-size: 11px;
+      font-weight: 500;
+      color: #a0b0cc;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .sep {
+      color: #667eea;
+      margin: 0 10px;
+      font-size: 10px;
+    }
+
+    .tagline {
+      margin-top: 10px;
+      font-size: 9.5px;
+      color: #667eea;
+      letter-spacing: 0.8px;
+      opacity: 0.75;
+    }
+
+    /* Bar chart decoration — bottom right */
+    .chart {
+      position: absolute;
+      bottom: 20px;
+      right: 110px;
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      opacity: 0.15;
+    }
+    .bar {
+      width: 6px;
+      background: linear-gradient(to top, #667eea, #4ecdc4);
+      border-radius: 2px 2px 0 0;
+    }
+
+    /* Note below */
+    .note {
+      color: #555;
+      font-size: 12px;
+      margin-top: 16px;
+      text-align: center;
+    }
+    .note span { color: #667eea; }
+  </style>
+</head>
+<body>
+
+  <div class="label">LinkedIn Cover — 1584 × 396 px (shown at 50%)</div>
+
+  <div class="cover">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- Bar chart decoration -->
+    <div class="chart">
+      <div class="bar" style="height:20px"></div>
+      <div class="bar" style="height:35px"></div>
+      <div class="bar" style="height:25px"></div>
+      <div class="bar" style="height:45px"></div>
+      <div class="bar" style="height:30px"></div>
+      <div class="bar" style="height:50px"></div>
+      <div class="bar" style="height:38px"></div>
+      <div class="bar" style="height:55px"></div>
+    </div>
+
+    <!-- Dot grid -->
+    <div class="dots">
+      <script>
+        for(let i = 0; i < 48; i++) {
+          document.write(`<div class="dot${Math.random()>0.8?' lit':''}"></div>`);
+        }
+      </script>
+    </div>
+
+    <div class="content">
+      <div class="name">Irmin Corona</div>
+      <div class="divider"></div>
+      <div class="roles">
+        <span class="role">Full-Stack Dev</span>
+        <span class="sep">◆</span>
+        <span class="role">Data Analyst</span>
+        <span class="sep">◆</span>
+        <span class="role">Technical SEO Specialist</span>
+      </div>
+      <div class="tagline">Data Analyst @ Stellantis / FCA · MSc Web Development · HK Top Talent</div>
+    </div>
+  </div>
+
+  <div class="note">
+    Colors: Background <span>#0d1b3e</span> · Accent <span>#667eea</span> · Teal <span>#4ecdc4</span>
+    <br>Font: Segoe UI or Inter · Name: Bold 700 · Roles: 500 uppercase · Tagline: <span>#667eea</span>
+  </div>
+
+</body>
+</html>
