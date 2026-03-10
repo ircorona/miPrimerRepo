@@ -2,42 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>LinkedIn Cover Mockup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Irmin Corona — Full-Stack Dev · Data Analyst · SEO Specialist</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: #1a1a2e;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      padding: 40px 20px;
+      background: #0f0f1a;
+      color: #c8d6e5;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
     }
 
-    .label {
-      color: #666;
-      font-size: 13px;
-      margin-bottom: 12px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
+    a { color: #667eea; text-decoration: none; transition: color 0.2s; }
+    a:hover { color: #4ecdc4; }
 
-    /* LinkedIn cover: 1584 x 396px — rendered at 50% */
-    .cover {
-      width: 792px;
-      height: 198px;
+    /* ── Hero Section ── */
+    .hero {
       position: relative;
       overflow: hidden;
-      border-radius: 8px;
+      padding: 80px 20px 60px;
+      text-align: center;
       background: linear-gradient(135deg, #0a0a1a 0%, #0d1b3e 40%, #0a2540 70%, #0d1b3e 100%);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
     }
 
-    /* Subtle grid pattern */
-    .cover::before {
+    .hero::before {
       content: '';
       position: absolute;
       inset: 0;
@@ -47,177 +36,378 @@
       background-size: 30px 30px;
     }
 
-    /* Glowing orbs */
-    .orb {
+    .hero .orb {
       position: absolute;
       border-radius: 50%;
-      filter: blur(60px);
-      opacity: 0.15;
+      filter: blur(80px);
+      pointer-events: none;
     }
-    .orb-1 {
-      width: 300px; height: 300px;
-      background: #667eea;
-      top: -100px; right: 100px;
-    }
-    .orb-2 {
-      width: 200px; height: 200px;
-      background: #4ecdc4;
-      bottom: -80px; right: 250px;
-      opacity: 0.1;
-    }
-    .orb-3 {
-      width: 150px; height: 150px;
-      background: #667eea;
-      top: 20px; left: 300px;
-      opacity: 0.08;
-    }
+    .hero .orb-1 { width: 400px; height: 400px; background: #667eea; top: -150px; right: 10%; opacity: 0.12; }
+    .hero .orb-2 { width: 300px; height: 300px; background: #4ecdc4; bottom: -100px; left: 20%; opacity: 0.08; }
 
-    /* Data dots — right side decoration */
-    .dots {
-      position: absolute;
-      right: 40px;
-      top: 50%;
-      transform: translateY(-50%);
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 6px;
-      opacity: 0.2;
-    }
-    .dot {
-      width: 4px;
-      height: 4px;
+    .hero-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      background: #667eea;
+      background: linear-gradient(135deg, #667eea, #4ecdc4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 auto 24px;
+      box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.3);
     }
-    .dot.lit { background: #4ecdc4; opacity: 1; }
 
-    /* Content */
-    .content {
-      position: absolute;
-      left: 48px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    .name {
-      font-size: 32px;
+    .hero h1 {
+      font-size: 2.5rem;
       font-weight: 700;
       color: #ffffff;
       letter-spacing: -0.5px;
-      line-height: 1.1;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
-    .divider {
-      width: 40px;
-      height: 2px;
-      background: linear-gradient(90deg, #667eea, #4ecdc4);
-      margin-bottom: 10px;
-      border-radius: 2px;
+    .hero .subtitle {
+      font-size: 1.05rem;
+      color: #a0b0cc;
+      margin-bottom: 16px;
     }
 
-    .roles {
+    .roles-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .role-tag {
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: 1px solid rgba(102, 126, 234, 0.3);
+      color: #667eea;
+      background: rgba(102, 126, 234, 0.06);
+    }
+
+    .role-tag.teal {
+      border-color: rgba(78, 205, 196, 0.3);
+      color: #4ecdc4;
+      background: rgba(78, 205, 196, 0.06);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #c8d6e5;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.2s;
+    }
+    .social-links a:hover {
+      background: rgba(102, 126, 234, 0.12);
+      border-color: rgba(102, 126, 234, 0.3);
+      color: #fff;
+    }
+
+    /* ── Section layout ── */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+    section { padding: 60px 0; }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 32px;
       display: flex;
       align-items: center;
-      gap: 0;
+      gap: 12px;
     }
 
-    .role {
-      font-size: 11px;
-      font-weight: 500;
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(102, 126, 234, 0.3), transparent);
+    }
+
+    /* ── About ── */
+    .about-text {
+      font-size: 1.05rem;
+      line-height: 1.8;
       color: #a0b0cc;
-      letter-spacing: 1.5px;
+      max-width: 750px;
+    }
+
+    /* ── Experience cards ── */
+    .timeline { display: flex; flex-direction: column; gap: 24px; }
+
+    .timeline-card {
+      padding: 24px 28px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: border-color 0.2s;
+    }
+    .timeline-card:hover { border-color: rgba(102, 126, 234, 0.25); }
+
+    .timeline-card h3 {
+      font-size: 1.1rem;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .timeline-meta {
+      font-size: 0.85rem;
+      color: #667eea;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .timeline-card p { color: #8a9bb5; font-size: 0.95rem; }
+
+    /* ── Skills grid ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-group {
+      padding: 24px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .skill-group h3 {
+      font-size: 0.85rem;
       text-transform: uppercase;
-    }
-
-    .sep {
+      letter-spacing: 1.2px;
       color: #667eea;
-      margin: 0 10px;
-      font-size: 10px;
+      margin-bottom: 14px;
+      font-weight: 600;
     }
 
-    .tagline {
-      margin-top: 10px;
-      font-size: 9.5px;
-      color: #667eea;
-      letter-spacing: 0.8px;
-      opacity: 0.75;
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .skill-tags span {
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      background: rgba(102, 126, 234, 0.08);
+      color: #a0b0cc;
+      border: 1px solid rgba(102, 126, 234, 0.12);
     }
 
-    /* Bar chart decoration — bottom right */
-    .chart {
-      position: absolute;
-      bottom: 20px;
-      right: 110px;
-      display: flex;
-      align-items: flex-end;
-      gap: 4px;
-      opacity: 0.15;
-    }
-    .bar {
-      width: 6px;
-      background: linear-gradient(to top, #667eea, #4ecdc4);
-      border-radius: 2px 2px 0 0;
+    /* ── Education ── */
+    .edu-list { display: flex; flex-direction: column; gap: 20px; }
+
+    .edu-item {
+      padding: 20px 24px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
     }
 
-    /* Note below */
-    .note {
-      color: #555;
-      font-size: 12px;
-      margin-top: 16px;
+    .edu-item h3 { font-size: 1.05rem; color: #fff; margin-bottom: 2px; }
+    .edu-item .edu-school { color: #4ecdc4; font-size: 0.9rem; font-weight: 500; }
+    .edu-item .edu-year { color: #667eea; font-size: 0.82rem; margin-top: 4px; }
+
+    /* ── Contact ── */
+    .contact-section {
       text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(180deg, transparent, rgba(102, 126, 234, 0.04));
     }
-    .note span { color: #667eea; }
+
+    .contact-section p {
+      color: #a0b0cc;
+      font-size: 1.05rem;
+      margin-bottom: 24px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 12px 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #667eea, #5a6fd6);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+      color: #fff;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.8rem;
+      color: #4a5568;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .hero { padding: 60px 20px 40px; }
+      .hero h1 { font-size: 1.8rem; }
+      .social-links { flex-direction: column; align-items: center; }
+      .skills-grid { grid-template-columns: 1fr; }
+      section { padding: 40px 0; }
+    }
   </style>
 </head>
 <body>
 
-  <div class="label">LinkedIn Cover — 1584 × 396 px (shown at 50%)</div>
-
-  <div class="cover">
+  <!-- ── Hero ── -->
+  <header class="hero">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-
-    <!-- Bar chart decoration -->
-    <div class="chart">
-      <div class="bar" style="height:20px"></div>
-      <div class="bar" style="height:35px"></div>
-      <div class="bar" style="height:25px"></div>
-      <div class="bar" style="height:45px"></div>
-      <div class="bar" style="height:30px"></div>
-      <div class="bar" style="height:50px"></div>
-      <div class="bar" style="height:38px"></div>
-      <div class="bar" style="height:55px"></div>
-    </div>
-
-    <!-- Dot grid -->
-    <div class="dots">
-      <script>
-        for(let i = 0; i < 48; i++) {
-          document.write(`<div class="dot${Math.random()>0.8?' lit':''}"></div>`);
-        }
-      </script>
-    </div>
-
-    <div class="content">
-      <div class="name">Irmin Corona</div>
-      <div class="divider"></div>
-      <div class="roles">
-        <span class="role">Full-Stack Dev</span>
-        <span class="sep">◆</span>
-        <span class="role">Data Analyst</span>
-        <span class="sep">◆</span>
-        <span class="role">Technical SEO Specialist</span>
+    <div class="hero-content">
+      <div class="avatar">IC</div>
+      <h1>Irmin Corona</h1>
+      <p class="subtitle">Data Analyst @ Stellantis / FCA · Hong Kong Top Talent</p>
+      <div class="roles-bar">
+        <span class="role-tag">Full-Stack Developer</span>
+        <span class="role-tag teal">Data Analyst</span>
+        <span class="role-tag">Technical SEO Specialist</span>
       </div>
-      <div class="tagline">Data Analyst @ Stellantis / FCA · MSc Web Development · HK Top Talent</div>
+      <div class="social-links">
+        <a href="https://linkedin.com/in/irmincorona" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/ircorona" target="_blank" rel="noopener">GitHub</a>
+      </div>
     </div>
-  </div>
+  </header>
 
-  <div class="note">
-    Colors: Background <span>#0d1b3e</span> · Accent <span>#667eea</span> · Teal <span>#4ecdc4</span>
-    <br>Font: Segoe UI or Inter · Name: Bold 700 · Roles: 500 uppercase · Tagline: <span>#667eea</span>
-  </div>
+  <!-- ── About ── -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <p class="about-text">
+        Results-driven professional with expertise spanning full-stack development, data analytics, and technical SEO.
+        Currently working as a Data Analyst at Stellantis / FCA, turning complex datasets into actionable insights.
+        Holding an MSc in Web Development and recognized as a Hong Kong Top Talent, I bring a unique blend of
+        engineering rigor and analytical thinking to every project.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Experience ── -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline">
+        <div class="timeline-card">
+          <h3>Data Analyst</h3>
+          <div class="timeline-meta">Stellantis / FCA · Present</div>
+          <p>Analyzing large-scale automotive datasets, building dashboards and reports that drive business decisions across multiple brands.</p>
+        </div>
+        <div class="timeline-card">
+          <h3>Full-Stack Developer & SEO Specialist</h3>
+          <div class="timeline-meta">Freelance / Projects</div>
+          <p>Building performant web applications and implementing technical SEO strategies to maximize organic visibility and user engagement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Skills ── -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Development</h3>
+          <div class="skill-tags">
+            <span>JavaScript</span>
+            <span>HTML / CSS</span>
+            <span>React</span>
+            <span>Node.js</span>
+            <span>SQL</span>
+            <span>REST APIs</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Data & Analytics</h3>
+          <div class="skill-tags">
+            <span>Python</span>
+            <span>Power BI</span>
+            <span>Excel / VBA</span>
+            <span>Data Visualization</span>
+            <span>Statistical Analysis</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>SEO & Marketing</h3>
+          <div class="skill-tags">
+            <span>Technical SEO</span>
+            <span>Google Analytics</span>
+            <span>Search Console</span>
+            <span>Schema Markup</span>
+            <span>Site Auditing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Education ── -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="edu-list">
+        <div class="edu-item">
+          <h3>MSc Web Development</h3>
+          <div class="edu-school">University Program</div>
+        </div>
+        <div class="edu-item">
+          <h3>Hong Kong Top Talent Pass Scheme</h3>
+          <div class="edu-school">Recognition for high-caliber professionals</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact ── -->
+  <section class="contact-section">
+    <div class="container">
+      <h2 class="section-title" style="justify-content: center;">Get In Touch</h2>
+      <p>Interested in collaborating or have a project in mind? Let's connect.</p>
+      <a class="btn-primary" href="https://linkedin.com/in/irmincorona" target="_blank" rel="noopener">Connect on LinkedIn</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Irmin Corona. Built with HTML &amp; CSS.
+  </footer>
 
 </body>
 </html>
